@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../controllers/attendance_controller.dart';
-import 'first.dart';
 
 class MapWithCircle extends StatefulWidget {
   const MapWithCircle({super.key});
@@ -58,20 +57,34 @@ class _MapWithCircleState extends State<MapWithCircle> {
           long = latLng.longitude;
         },
       ),
-      floatingActionButton: FloatingActionButton.large(
-        backgroundColor: Colors.red,
-        onPressed: () async {
-          await FirebaseFirestore.instance.collection('circle').doc('geo').set({
-            'late': late,
-            'long': long,
-          }).then((value) {
-            Get.to(const HomePage());
-          });
-        },
-        child: const Text(
-          'Done',
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.w900, color: Colors.white),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomLeft,
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: FloatingActionButton.large(
+            backgroundColor: Colors.red,
+            onPressed: () async {
+              await FirebaseFirestore.instance
+                  .collection('circle')
+                  .doc('geo')
+                  .set({
+                'late': late,
+                'long': long,
+              }).then((value) {
+                Get.showSnackbar(const GetSnackBar(
+                  message: 'Done',
+                  duration: Duration(seconds: 3),
+                ));
+              });
+            },
+            child: const Text(
+              'Done',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
+            ),
+          ),
         ),
       ),
     );
