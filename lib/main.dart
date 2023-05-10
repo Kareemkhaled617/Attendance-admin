@@ -1,3 +1,4 @@
+import 'package:attendance_admin/screen/auth/Screens/login/login.dart';
 import 'package:attendance_admin/screen/first.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const HomePage(),
+      home: const LoginScreen(),
     );
   }
 }

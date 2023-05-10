@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../first.dart';
-import '../../components/background.dart';
-import '../register/register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   double screenHeight = 0;
   double screenWidth = 0;
   Color primary = const Color(0xffeef444c);
+
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
@@ -112,115 +111,112 @@ class _LoginScreenState extends State<LoginScreen> {
     //   ),
     // );
 
-
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          SizedBox(height: screenHeight / 16,) ,
-          Container(
-            height: screenHeight / 2.5,
-            width: screenWidth,
-            decoration: BoxDecoration(
-              color: primary,
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(70),
-              ),
-            ),
-            child: Center(
-              child: Icon(
-                Icons.person,
-                color: Colors.white,
-                size: screenWidth / 5,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: screenHeight / 15,
-              bottom: screenHeight / 20,
-            ),
-            child: Text(
-              "Login",
-              style: TextStyle(
-                fontSize: screenWidth / 18,
-                fontFamily: "NexaBold",
-              ),
-            ),
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.symmetric(
-              horizontal: screenWidth / 12,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                fieldTitle("Email"),
-                customField("Enter your email"),
-                fieldTitle("Password"),
-                customField("Enter your password"),
-    Container(
-              alignment: Alignment.centerRight,
-              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              child: MaterialButton(
-                onPressed: () {
-                  Get.to(const HomePage());
-                },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)),
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(0),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 50.0,
-                  width: size.width * 0.5,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(80.0),
-                      gradient: const LinearGradient(colors: [
-                        Color.fromARGB(255, 250, 38, 63),
-                        Color.fromARGB(255, 218, 11, 17)
-                      ])),
-                  padding: const EdgeInsets.all(0),
-                  child: const Text(
-                    "LOGIN",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            Container(
+              height: screenHeight / 2.5,
+              width: screenWidth,
+              decoration: BoxDecoration(
+                color: primary,
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(70),
                 ),
               ),
-    // Container(
-    // height: 60,
-    // width: screenWidth,
-    // margin: EdgeInsets.only(top: screenHeight / 40),
-    // decoration: BoxDecoration(
-    // color: primary,
-    // borderRadius: const BorderRadius.all(Radius.circular(30)),
-    // ),
-    // child: Center(
-    // child: Text(
-    // "LOGIN",
-    // style: TextStyle(
-    // fontFamily: "NexaBold",
-    // fontSize: screenWidth / 26,
-    // color: Colors.white,
-    // letterSpacing: 2,
-    // ),
-    // ),
-    // ),
+              child: Center(
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: screenWidth / 5,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: screenHeight / 15,
+                bottom: screenHeight / 20,
+              ),
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  fontSize: screenWidth / 18,
+                  fontFamily: "NexaBold",
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.symmetric(
+                horizontal: screenWidth / 12,
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    fieldTitle("Email"),
+                    customField("Enter your email"),
+                    fieldTitle("Password"),
+                    customField("Enter your password"),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 10),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Get.to(const HomePage());
+                        },
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80.0)),
+                        textColor: Colors.white,
+                        padding: const EdgeInsets.all(0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 50.0,
+                          width: size.width * 0.5,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80.0),
+                              gradient: const LinearGradient(colors: [
+                                Color.fromARGB(255, 250, 38, 63),
+                                Color.fromARGB(255, 218, 11, 17)
+                              ])),
+                          padding: const EdgeInsets.all(0),
+                          child: const Text(
+                            "LOGIN",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      // Container(
+                      // height: 60,
+                      // width: screenWidth,
+                      // margin: EdgeInsets.only(top: screenHeight / 40),
+                      // decoration: BoxDecoration(
+                      // color: primary,
+                      // borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      // ),
+                      // child: Center(
+                      // child: Text(
+                      // "LOGIN",
+                      // style: TextStyle(
+                      // fontFamily: "NexaBold",
+                      // fontSize: screenWidth / 26,
+                      // color: Colors.white,
+                      // letterSpacing: 2,
+                      // ),
+                      // ),
+                      // ),
 
+                      //);
 
-    //);
+                      //},
+                    ),
+                  ]),
+            ),
+          ],
+        ));
+  }
 
-    //},
-    ),
-          ]),
-    ),],
-    ));
-
-
-
-}
   Widget fieldTitle(String title) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -280,5 +276,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
 }
