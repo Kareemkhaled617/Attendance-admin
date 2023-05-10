@@ -30,14 +30,14 @@ class _HomeDrawerState extends State<HomeDrawer> {
   void setDrawerListArray() {
     drawerList = <DrawerList>[
       DrawerList(
-        index: DrawerIndex.HOME,
-        labelName: 'Home',
-        icon: const Icon(Icons.home),
-      ),
-      DrawerList(
         index: DrawerIndex.Help,
         labelName: 'Attendance registration',
         icon: const Icon(Icons.edit_location_sharp),
+      ),
+      DrawerList(
+        index: DrawerIndex.attendance,
+        labelName: 'Attendance Schedule',
+        icon: const Icon(Icons.location_history),
       ),
       DrawerList(
         index: DrawerIndex.Geolocation,
@@ -45,19 +45,14 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: const Icon(Icons.location_history),
       ),
       DrawerList(
-        index: DrawerIndex.Invite,
-        labelName: 'Add Employee',
-        icon: const Icon(Icons.group),
+        index: DrawerIndex.About,
+        labelName: 'Staff attendance schedule',
+        icon: const Icon(Icons.note_add_outlined),
       ),
       DrawerList(
         index: DrawerIndex.Share,
         labelName: 'Add Manger',
-        icon: const Icon(Icons.add),
-      ),
-      DrawerList(
-        index: DrawerIndex.About,
-        labelName: 'About Us',
-        icon: const Icon(Icons.info),
+        icon: const Icon(Icons.group),
       ),
     ];
   }
@@ -299,6 +294,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 
 enum DrawerIndex {
   HOME,
+  attendance,
   Geolocation,
   Help,
   Share,

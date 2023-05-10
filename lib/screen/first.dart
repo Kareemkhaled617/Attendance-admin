@@ -1,8 +1,11 @@
+import 'package:attendance_admin/screen/staff_attendance_schedule/mainscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../controllers/attendance_controller.dart';
+import 'attendance_registretion/todayscreen.dart';
 import 'add_manger/add_manger.dart';
-import 'add_user/add_user.dart';
-import 'attendance_screen.dart';
+import 'attendance_schedule/attendance_schedule.dart';
 import 'custom_drawer/drawer_user_controller.dart';
 import 'custom_drawer/home_drawer.dart';
 import 'drow_circle.dart';
@@ -17,11 +20,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget? screenView;
-
+  final _controller = Get.put(AttendanceController());
   DrawerIndex? drawerIndex;
 
   @override
   void initState() {
+    _controller.getCurrentLocation();
+    _controller.getListAttendances();
     drawerIndex = DrawerIndex.HOME;
     screenView = const HomeScreen();
     super.initState();
@@ -55,7 +60,7 @@ class _HomePageState extends State<HomePage> {
           break;
         case DrawerIndex.Help:
           setState(() {
-            screenView = const AttendanceScreen();
+            screenView = const TodayScreen();
           });
           break;
         case DrawerIndex.Geolocation:
@@ -65,12 +70,22 @@ class _HomePageState extends State<HomePage> {
           break;
         case DrawerIndex.Invite:
           setState(() {
-            screenView = const AddUser();
+            screenView = const TodayScreen();
           });
           break;
         case DrawerIndex.Share:
           setState(() {
             screenView = const AddManger();
+          });
+          break;
+        case DrawerIndex.About:
+          setState(() {
+            screenView = const MainScreen();
+          });
+          break;
+        case DrawerIndex.attendance:
+          setState(() {
+            screenView = const AttendanceSchedule();
           });
           break;
         default:

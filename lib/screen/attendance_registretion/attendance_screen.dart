@@ -7,7 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../controllers/attendance_controller.dart';
+import '../../controllers/attendance_controller.dart';
 
 class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({Key? key}) : super(key: key);
@@ -32,25 +32,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     Circle(
       strokeWidth: 2,
       fillColor: Colors.greenAccent.withOpacity(0.3),
-      strokeColor: Colors.greenAccent,
+      strokeColor: Colors.redAccent,
       circleId: const CircleId('center'),
       center: const LatLng(29.9736, 31.3447),
       radius: 100,
     )
   };
 
-  // TODO change marker info here
-  // final Set<Marker> _markers = {
-  //   Marker(
-  //     markerId: const MarkerId('center'),
-  //     position:
-  //         LatLng(_controller.center.latitude, _controller.center.longitude),
-  //     infoWindow: const InfoWindow(
-  //       title: 'Attendance point',
-  //       snippet: 'Matahari Johar Plaza',
-  //     ),
-  //   ),
-  // };
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -93,7 +81,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       appBar: AppBar(
         title: const Text('Attendance'),
         centerTitle: true,
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Colors.red,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

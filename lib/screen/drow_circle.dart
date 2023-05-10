@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:attendance_admin/screen/first.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../controllers/attendance_controller.dart';
+import 'first.dart';
 
 class MapWithCircle extends StatefulWidget {
   const MapWithCircle({super.key});
@@ -16,7 +17,8 @@ class MapWithCircle extends StatefulWidget {
 
 class _MapWithCircleState extends State<MapWithCircle> {
   final Completer<GoogleMapController> _controller = Completer();
-
+  double? late;
+  double? long;
   final double _radius = 200;
   Set<Circle> _circles = {};
   final con = Get.put(AttendanceController());
@@ -31,7 +33,7 @@ class _MapWithCircleState extends State<MapWithCircle> {
         Circle(
           strokeWidth: 2,
           fillColor: Colors.greenAccent.withOpacity(0.3),
-          strokeColor: Colors.greenAccent,
+          strokeColor: Colors.redAccent,
           circleId: const CircleId("circle"),
           center: center,
           radius: _radius,
@@ -52,14 +54,19 @@ class _MapWithCircleState extends State<MapWithCircle> {
         circles: _circles,
         onTap: (LatLng latLng) {
           _updateCircle(latLng);
-          print(latLng.latitude);
-          print(latLng.longitude);
+          late = latLng.latitude;
+          long = latLng.longitude;
         },
       ),
       floatingActionButton: FloatingActionButton.large(
-        backgroundColor: Colors.blue,
-        onPressed: () {
-          Get.to(HomePage());
+        backgroundColor: Colors.red,
+        onPressed: () async {
+          await FirebaseFirestore.instance.collection('circle').doc('geo').set({
+            'late': late,
+            'long': long,
+          }).then((value) {
+            Get.to(const HomePage());
+          });
         },
         child: const Text(
           'Done',

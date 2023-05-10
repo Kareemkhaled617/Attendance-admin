@@ -21,7 +21,7 @@ class AddUser extends StatelessWidget {
                 "Add New Employee",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2661FA),
+                    color: Color(0xFFDA0B11),
                     fontSize: 36),
                 textAlign: TextAlign.left,
               ),
@@ -68,12 +68,12 @@ class AddUser extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(80.0),
                       gradient: const LinearGradient(colors: [
-                        Color.fromARGB(255, 255, 136, 34),
-                        Color.fromARGB(255, 255, 177, 41)
+                        Color.fromARGB(255, 218, 11, 17),
+                        Color.fromARGB(255, 250, 38, 63)
                       ])),
                   padding: const EdgeInsets.all(0),
                   child: const Text(
-                    "Add User",
+                    "Add Employee",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
