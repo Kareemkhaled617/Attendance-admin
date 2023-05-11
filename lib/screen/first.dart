@@ -10,6 +10,7 @@ import 'custom_drawer/drawer_user_controller.dart';
 import 'custom_drawer/home_drawer.dart';
 import 'drow_circle.dart';
 import 'homepage.dart';
+import 'manage_work_hour/manage_work_hour.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -86,6 +87,11 @@ class _HomePageState extends State<HomePage> {
         case DrawerIndex.attendance:
           setState(() {
             screenView = const AttendanceSchedule();
+          });
+          break;
+        case DrawerIndex.MANAGE:
+          setState(() {
+            screenView = const ManagingWorkingHours();
           });
           break;
         default:

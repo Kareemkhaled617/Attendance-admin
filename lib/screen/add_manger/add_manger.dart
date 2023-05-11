@@ -62,6 +62,7 @@ class _AddMangerState extends State<AddManger> {
               margin: const EdgeInsets.symmetric(horizontal: 40),
               child: DropdownButton<String>(
                 focusColor: Colors.white,
+                isExpanded: true,
                 value: dropdownValue,
                 style: const TextStyle(color: Colors.white),
                 iconEnabledColor: Colors.black,
@@ -69,9 +70,15 @@ class _AddMangerState extends State<AddManger> {
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(
-                      value,
-                      style: const TextStyle(color: Colors.black),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   );
                 }).toList(),

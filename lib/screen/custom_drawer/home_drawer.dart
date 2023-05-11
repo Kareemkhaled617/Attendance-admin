@@ -54,6 +54,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         labelName: 'Add Manger',
         icon: const Icon(Icons.group),
       ),
+      DrawerList(
+        index: DrawerIndex.MANAGE,
+        labelName: 'Managing Working Hours',
+        icon: const Icon(Icons.manage_history),
+      ),
     ];
   }
 
@@ -301,6 +306,7 @@ enum DrawerIndex {
   About,
   Invite,
   Testing,
+  MANAGE,
 }
 
 class DrawerList {
